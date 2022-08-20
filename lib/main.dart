@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               children: const [
                 Text(
-                  'eyeta',
+                  'GUESS',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 50.0,
