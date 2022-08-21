@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           textAlign: TextAlign.center,
                                           decoration: InputDecoration(
                                             hintText:
-                                                'Enter a termperature value to convert',
+                                            'Enter a termperature value to convert',
                                           ),
                                         ),
                                       )
@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )),
                           ),
                           Expanded(
-                            //ปุ่ม
+                            //ปุ่ม1
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                           Expanded(
-                            //ปุ่ม
+                            //ปุ่ม2
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -237,7 +237,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
 
                           Expanded(
-                            //ปุ่ม
+                            //ปุ่ม3
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -304,7 +304,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                           Expanded(
-                            //ปุ่ม
+                            //ปุ่ม4
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -371,7 +371,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                           Expanded(
-                            //ปุ่ม
+                            //ปุ่ม5
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -439,7 +439,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                           Expanded(
 
-                            //ปุ่ม
+                            //ปุ่ม6
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -508,6 +508,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             )) // This trailing comma makes auto-formatting nicer for build methods.
-        );
+    );
   }
 }
