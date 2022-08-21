@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Midterm Exam',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -36,190 +36,478 @@ class _MyHomePageState extends State<MyHomePage> {
   var process = sum();
 
   final input1 = TextEditingController();
-  final input2 = TextEditingController();
-
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/guess_logo.png'), //BG
-                fit: BoxFit.cover,
+            constraints: BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              color: Colors.lightBlue[100],
             ),
-          ),
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-
-              children: const [
-                Text(
-                  'GUESS',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 50.0,
-                  ),
-                ),
-
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                'assets/images/guess_logo.png',
-                width: 100,
-                height: 100,
-                //fit: BoxFit.fill,
-              ),
-            ),
-
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                        color: Colors.white,
-
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text("หัวข้อ1"),
-                              Text("(จ้า)"),
-                              Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: TextField(
-                                  controller: input1,
-                                  textAlign: TextAlign.center,
-                                  decoration: InputDecoration(
-                                    hintText: 'ใส่ข้อมูล',
-
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
+            child: Container(
+              padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(200.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.yellow.shade50,
+                  border: Border.all(width: 5.0, color: Colors.amber),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.lightGreenAccent.withOpacity(0.3),
+                        offset: const Offset(2.0, 5.0),
+                        blurRadius: 5.0,
+                        spreadRadius: 2.0)
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Temperature Converter',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30.0,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Container(
-                        color: Colors.pink[100],
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text("หัวข้อ2"),
-                              Text("(ครับ)"),
-                              Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: TextField(
-                                  controller: input2,
-                                  textAlign: TextAlign.center,
-                                  decoration: InputDecoration(
-                                    hintText: 'ใส่ข้อมูล',
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: TextField(
+                                          controller: input1,
+                                          textAlign: TextAlign.center,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                'Enter a termperature value to convert',
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                ),
-                              )
-                            ],
+                                )),
                           ),
-                        )
-                    ),
-                  ),
-                  Expanded( //ปุ่ม
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('ชื่อปุ่ม',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white
-                              ),
+                          Expanded(
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Celsius to Fahrenheit',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data1 = double.tryParse(input1.text);
+                                    if (data1 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      var cctofahrenheit = process.calculateCCtoFah(data1);
+
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Celsius to Farenheit'),
+                                            content: Text("Ans: $cctofahrenheit "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
                             ),
                           ),
-                          onPressed: (){
-                            var data1 = double.tryParse(input1.text);
-                            var data2 = double.tryParse(input2.text);
-                            if(data1 == null || data2 == null){
-                              showDialog(
-                                context: context,
-                                barrierDismissible: false,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('ERROR'),
-                                    content: Text("Invalid input"),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
+
+
+                          Expanded(
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Celsius to Kelvin',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data2 = double.tryParse(input1.text);
+                                    if (data2 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
                                         },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }else{
-                              var weight = process.calculate(data1, data2);
-                              var price = weight/2;
+                                      );
+                                    } else {
+                                      var cctokel = process.calculateCCtoKel(data2);
 
-
-                              showDialog(
-                                context: context,
-                                barrierDismissible: false,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-
-                                    title: Text('RESULT'),
-                                    content: Text("Ans: $price "),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Celsius to Kelvin'),
+                                            content: Text("Ans: $cctokel "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
                                         },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                          },
-                        ),
-                      ],
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Expanded(
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Fahrenheit to Celsius',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data3 = double.tryParse(input1.text);
+                                    if (data3 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      var fahtoCel = process.calculateFahtoCel(data3);
+
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Fahrenheit to Celsius'),
+                                            content: Text("Ans: $fahtoCel "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
+
+                          Expanded(
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Fahrenheit to Kelvin',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data4 = double.tryParse(input1.text);
+                                    if (data4 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      var fahtokel = process.calculateFahtoKel(data4);
+
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Fahrenheit to Kelvin'),
+                                            content: Text("Ans: $fahtokel "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
+
+                          Expanded(
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Kelvin to Celsius',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data5 = double.tryParse(input1.text);
+                                    if (data5 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      var keltocel = process.calculateKeltoCC(data5);
+
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Kelvin to Celsius'),
+                                            content: Text("Ans: $keltocel "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+
+
+
+
+                          Expanded(
+
+                            //ปุ่ม
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Kelvin to Fahrenheit',
+                                      style: TextStyle(
+                                          fontSize: 15.0, color: Colors.black),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    var data6 = double.tryParse(input1.text);
+                                    if (data6 == null) {
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('ERROR'),
+                                            content: Text(
+                                                "Please enter a value to convert"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      var keltofah = process.calculateKeltoFah(data6);
+
+                                      showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Kelvin to Fahrenheit'),
+                                            content: Text("Ans: $keltofah "),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Text('OK'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                  ],
+                ),
               ),
-            ),
-
-          ],
-        ),
-      ),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+            )) // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }
